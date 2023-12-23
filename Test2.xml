@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Rest Assured Automation Suite test">
+	<test thread-count="1" name="Run test1">
+
+		<classes>
+
+			<class name="Day8.Createuser"></class>
+
+		</classes>
+	</test>
+	<test thread-count="1" name="Run test2">
+		<classes>
+
+			<class name="Day8.Getuser"></class>
+
+
+		</classes>
+	</test>
+	<test thread-count="1" name="Run test3">
+		<classes>
+
+			<class name="Day8.updateuser"></class>
+
+		</classes>
+	</test>
+	<test thread-count="1" name="Run test4">
+		<classes>
+
+			<class name="Day8.deleteuser"></class>
+		
+		</classes>
+	</test>
+	<!-- Test -->
+</suite> <!-- Suite -->

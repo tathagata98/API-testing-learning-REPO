@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome6",
+    "definitions": {
+        "Welcome6": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Identities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Identity"
+                    }
+                }
+            },
+            "required": [
+                "Identities"
+            ],
+            "title": "Welcome6"
+        },
+        "Identity": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "movie": {
+                    "type": "string"
+                },
+                "courses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "courses",
+                "location",
+                "movie",
+                "name",
+                "phone"
+            ],
+            "title": "Identity"
+        }
+    }
+}
