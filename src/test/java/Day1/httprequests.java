@@ -23,16 +23,19 @@ public class httprequests {
 	@Test(priority = 2)
 	void createUser() {
 		HashMap data = new HashMap();
-		data.put("name", "Tathagata");
-		data.put("job", "Automation Engineer");
+		data.put("name","Tathagata");
+		data.put("job","Automation Engineer");
 
-		id = given().contentType("application/json").body(data)
+		id =given().contentType("application/json").
+		body(data)
+				.header("x-api-key", "reqres-free-v1")
 
-				.when().post("https://reqres.in/api/users").jsonPath().getInt("id");
+				.when().post("https://reqres.in/api/users")
+				.jsonPath().getInt("id");
 
 		System.out.println(id);
 
-		//.then().statusCode(201).log().all();
+		//.then().log().all();
 
 	}
 
@@ -43,6 +46,7 @@ public class httprequests {
 		data.put("job", "Senior Manager");
 
 		given().contentType("application/json").body(data)
+				.header("x-api-key", "reqres-free-v1")
 
 				.when().put("https://reqres.in/api/users/" + id)
 
@@ -55,8 +59,9 @@ public class httprequests {
 	void deleteUser()
 	{
 		given()
+				.header("x-api-key", "reqres-free-v1")
 
-		.when()
+				.when()
 		.delete("https://reqres.in/api/users/" + id)
 
 		.then()
