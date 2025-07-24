@@ -17,6 +17,7 @@ Day3\headersdemo.class
 Day5\ParsingXMLresponse.class
 Utilities\util.class
 check\parsing.class
+check\just.class
 Day3\PathandQueryParameters.class
 Day1\httprequests.class
 Day5\singlefileuploadanddownload_forstaticvalue.class
