@@ -1,18 +1,21 @@
 package Day1;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.equalTo;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.testng.annotations.Test;
 
-public class httprequests {
+public class httpRequests {
 
 	static int id;
 
 	@Test(priority = 1)
-	void getuserlist() {
+	void getUserList() {
 		given()
 
 				.when().get("https://reqres.in/api/users?page=2")
@@ -22,26 +25,24 @@ public class httprequests {
 
 	@Test(priority = 2)
 	void createUser() {
-		HashMap data = new HashMap();
+		Map<String,String> data = new LinkedHashMap<>();
 		data.put("name","Tathagata");
 		data.put("job","Automation Engineer");
 
-		id =given().contentType("application/json").
-		body(data)
-				.header("x-api-key", "reqres-free-v1")
-
+		id =given()
+				.contentType("application/json")
+				.body(data)
+				.header("x-api-key","reqres-free-v1")
 				.when().post("https://reqres.in/api/users")
 				.jsonPath().getInt("id");
 
 		System.out.println(id);
 
-		//.then().log().all();
-
-	}
+			}
 
 	@Test(priority=3 , dependsOnMethods = { "createUser" })
 	void updateUser() {
-		HashMap data = new HashMap();
+		Map<String,String> data = new LinkedHashMap<>();
 		data.put("name", "Tathagata");
 		data.put("job", "Senior Manager");
 
@@ -59,6 +60,7 @@ public class httprequests {
 	void deleteUser()
 	{
 		given()
+				.contentType("application/json")
 				.header("x-api-key", "reqres-free-v1")
 
 				.when()
